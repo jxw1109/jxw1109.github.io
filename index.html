@@ -71,6 +71,12 @@
 			<div class="social">
 				
 			</div>
+			<!-- 网易云音乐插件 -->
+
+    <div style="position:absolute; bottom:120px left:auto; width:85%">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=32"></iframe>
+    </div>
+
 		</nav>
 	</header>		
 </div>
@@ -150,6 +156,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在python对文件进行读写操作的时候，常常涉及到“读写模式”，整理了一下常见的几种模式，如下：</p>
+<!-- main -->
 <p>读写模式：<br>r ：只读<br>r+ : 读写<br>w ： 新建（会对原有文件进行覆盖）<br>a ： 追加<br>b ： 二进制文件</p>
 <p>常用的模式有：<br>“a” 以“追加”模式打开， (从 EOF 开始, 必要时创建新文件)<br>“a+” 以”读写”模式打开<br>“ab” 以”二进制 追加”模式打开<br>“ab+” 以”二进制 读写”模式打开</p>
 <p>“w” 以”写”的方式打开<br>“w+” 以“读写”模式打开<br>“wb” 以“二进制 写”模式打开<br>“wb+” 以“二进制 读写”模式打开</p>
@@ -231,6 +238,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>虽然随着计算机产业的发展，<br>Windows 操作系统的应用越来越广泛，<br>DOS 面临着被淘汰的命运，<br>但是因为它运行安全、稳定，<br>有的用户还在使用，所以一般Windows<br>的各种版本都与其兼容，<br>用户可以在Windows 系统下运行DOS，<br>中文版Windows XP 中的命令提示符进一步提高了<br>与DOS 下操作命令的兼容性，<br>用户可以在命令提示符直接输入中文调用文件。</p>
+<!-- main -->
 <p>CMD命令：开始－&gt;运行－&gt;键入cmd或command(在命令行里可以看到系统版本、文件系统版本)</p>
 <p>CMD命令锦集</p>
 <pre><code>1. gpedit.msc-----组策略</code></pre><p>　　2. sndrec32——-录音机</p>
@@ -618,15 +626,48 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2019 Mr.Jiang
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+<span id="sitetime"></span>
+<script language=javascript>
+        function siteTime(){
+                window.setTimeout("siteTime()", 1000);
+                var seconds = 1000;
+                var minutes = seconds * 60;
+                var hours = minutes * 60;
+                var days = hours * 24;
+                var years = days * 730;
+                var today = new Date();
+                var todayYear = today.getFullYear();
+                var todayMonth = today.getMonth()+1;
+                var todayDate = today.getDate();
+                var todayHour = today.getHours();
+                var todayMinute = today.getMinutes();
+                var todaySecond = today.getSeconds();
+                /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                year - 作为date对象的年份，为4位年份值
+                month - 0-11之间的整数，做为date对象的月份
+                day - 1-31之间的整数，做为date对象的天数
+                hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                minutes - 0-59之间的整数，做为date对象的分钟数
+                seconds - 0-59之间的整数，做为date对象的秒数
+                microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                var t1 = Date.UTC(2017,01,01,16,26,13); //建站时间
+                var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+                var diff = t2-t1;
+                var diffYears = Math.floor(diff/years);
+                var diffDays = Math.floor((diff/days)-diffYears*365);
+                var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+                var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+                var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+                document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+        }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+        siteTime();
+</script>
+
+
     </div>
   </div>
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
