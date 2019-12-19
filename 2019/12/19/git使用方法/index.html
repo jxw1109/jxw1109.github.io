@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>自动化运维架构 | Mr.Jiang的博客</title>
+  <title>git使用方法 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、DevOps定义 　　　　　　1. DevOps是“开发”和“运维”的缩写。 　　　　　　2. DevOps是一组最佳实践强调（IT研发、运维、测试）在应用和服务生命周期中的协作和沟通 　　　　　　3. 强调整个组织的合作以及交付和基础设施变更自动化，从而实现持续集成、持续部署和持续交付">
-<meta name="keywords" content="运维">
+  <meta name="description" content="1.GIT与SVN的区别 1、SVN –CollabNet Subversion  　　1. SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑　　2. 所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。　　3. 集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动化运维架构">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;01&#x2F;18&#x2F;%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84&#x2F;index.html">
+<meta property="og:title" content="git使用方法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
-<meta property="og:description" content="1、DevOps定义 　　　　　　1. DevOps是“开发”和“运维”的缩写。 　　　　　　2. DevOps是一组最佳实践强调（IT研发、运维、测试）在应用和服务生命周期中的协作和沟通 　　　　　　3. 强调整个组织的合作以及交付和基础设施变更自动化，从而实现持续集成、持续部署和持续交付">
+<meta property="og:description" content="1.GIT与SVN的区别 1、SVN –CollabNet Subversion  　　1. SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑　　2. 所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。　　3. 集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-19T03:24:28.606Z">
+<meta property="og:updated_time" content="2019-12-19T04:02:48.321Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -137,45 +137,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-自动化运维架构" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-git使用方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      自动化运维架构
+      git使用方法
     </h1>
   
 
         
-        <a href="/2018/01/18/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2018-01-18T15:28:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+        <a href="/2019/12/19/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-12-19T03:25:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、DevOps定义</p>
-<p>　　　　　　1. DevOps是“开发”和“运维”的缩写。</p>
-<p>　　　　　　2. DevOps是一组最佳实践强调（IT研发、运维、测试）在应用和服务生命周期中的协作和沟通</p>
-<p>　　　　　　3. 强调整个组织的合作以及交付和基础设施变更自动化，从而实现持续集成、持续部署和持续交付</p>
+        <h2 id="1-GIT与SVN的区别"><a href="#1-GIT与SVN的区别" class="headerlink" title="1.GIT与SVN的区别"></a>1.GIT与SVN的区别</h2><ul>
+<li>1、SVN –CollabNet Subversion</li>
+</ul>
+<p>　　1. SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑<br>　　2. 所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。<br>　　3. 集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。</p>
 <a id="more"></a>
-<p>2、DevOps持续交付环</p>
-<p>　　　　　　1. 我们把开发交付划分为:  计划  –&gt; 编码 –&gt; 构建 –&gt; 测试 –&gt; 版本 –&gt; 部署 –&gt; 运维 –&gt; 监控 的一个闭环。</p>
-<p>　　　　　　2. DevOps的目标是通过建立并不断完善持续交付的流水线。</p>
-<p>3、DevOps的四大模块<br>    1. 项目管理：JIRA、Redmine<br>    2. 运维平台：CMDB、监控、日志等<br>    3. 代码托管：SVN、GitLab<br>    3. 持续交付：JenKins</p>
-<p>1.监控工具</p>
-<p>　　Zabbix、openfalcon、nagios、Prometheus</p>
-<p>2.自动化运维管理工具</p>
-<p>　　　saltstack/ansible/puppet</p>
-<p>3.平台开发</p>
-<p>　　　CMDB、监控系统、工单系统、ELK日志分析监控、DevOps CI/CD自动化交付平台</p>
-<p>4.常用工具</p>
-<p>　　　　Jenkins/Git/Maven、Nginx/apache、Git、Lvs/keepalive、Hadoop、Docker、kafka、Kubernetes</p>
-<p>5.运维基础</p>
-<p>　　　Shell、linux、awk</p>
+
+<ul>
+<li>2、GIT</li>
+</ul>
+<p>　  1. Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，<br>　　2. 这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。<br>　　3. 你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了，当然也可以推送到git的仓库中，比如GitHub</p>
+<h2 id="工作区、暂存区、代码仓库"><a href="#工作区、暂存区、代码仓库" class="headerlink" title="工作区、暂存区、代码仓库"></a>工作区、暂存区、代码仓库</h2><p>　　　　　　1、工作区： 就是你在电脑上看到的目录，比如目录下testgit里的文件(.git隐藏目录版本库除外)。<br>　　　　　　2、暂存区 :  暂存区就是文件夹 .git中的一个小部分（.git文件夹就是版本库）<br>　　　　　　3、版本库：工作区有一个隐藏目录.git,这个不属于工作区，这是版本库，  版本库中还有Git为我们<br>　　　　　　                   自动创建了第一个分支master,以及指向master的一个指针HEAD<br>　　　　　　4、 把文件添加到版本库分为以下三步：</p>
+<p>　　　　　　　　1）vim Readme                        #工作区（Working Zone） 比如在mkdir s15_gitpro下执行创建文件命令<br>　　　　　　　　2）git add                                 #暂存区（Stage zone）<br>　　　　　　　　3）git commit                           #代码仓库（Repository master） 只有提交到代码库才能被git管理</p>
+<h2 id="GIT基本命令"><a href="#GIT基本命令" class="headerlink" title="GIT基本命令"></a>GIT基本命令</h2><p>1、将文件添加到仓库<br>　　　　　　　　git add Readme                       #指定将Readme文件添加到暂存区<br>　　　　　　　　git add .                                   #将当前目录中的所有文件全部添加到暂存区<br>　　　　　　　　git status                                 #查看更改了哪些，创建了哪些，哪些没有添加到仓库，哪些添加到了仓库<br>　　　　　　　　git status diff readme              #查看readme文件具体修改了哪些<br>　　　　　　　　git commit -m “commit tag”     # git commit告诉Git，把文件提交到仓库-m后面输入的是本次提交的说明(版本名字)</p>
+<p>　　　　　　　　说明：<br>　　　　　　　　　　# 执行git commit 命令时必须配置用户信息<br>　　　　　　　　　　git config –global user.name “Tom Git”<br>　　　　　　　　　　git config –global user.email <a href="mailto:tom@example.com" target="_blank" rel="noopener">tom@example.com</a></p>
+<p>　　　　2、回滚<br>　　　　　　　　git log                                         #查看所有提交到仓库的版本记录:   git log -2<br>　　　　　　　　git reflog                                     #查看所有操作记录（状态的md5值和改变的值）<br>　　　　　　　　git reset –hard d9e0ed0            #回到指定版本（d9e0ed0是创建版本的MD5值得前6位或者7位）<br>　　　　　　　　git reset –hard HEAD^               #回到上一个版本<br>　　　　　　　　注：这样可以回到第一次提交到仓库的状态，但再使用git log看不到其他几次的md5值了</p>
+<p>　　　　3、撤销修改</p>
+<p>　　　　　　　　vim Readme                               #我们在Readme文件中写了一些错误的代码<br>　　　　　　　　git add .                                      #然后又一不小心将文件从工作区提交到了 stage区<br>　　　　　　　　git reset HEAD Readme            #将Readme中刚提交到 stage区 的代码撤回到工作区<br>　　　　　　　　git status                                    #查看目前工作区状态<br>　　　　　　　　git checkout – Readme             #将Readme在工作区错误的代码丢弃</p>
+<p>　　　　4、删除操作（两种方法）</p>
+<p>　　　　　　　　方法1：这种方法需要执行git add .  </p>
+<p>　　　　　　　　　　rm Readme<br>　　　　　　　　　　git add .<br>　　　　　　　　　　git commit -m “delete file by git rm”<br>　　　　　　　　　　git reset –hard HEAD^</p>
+<p>　　　　　　　　方法2：这种方法可以省去执行git add .</p>
+<p>　　　　　　　　　　git rm Readme<br>　　　　　　　　　　git commit -m “delete file by git rm”<br>　　　　　　　　　　git reset –hard HEAD^</p>
+<p>　　　　　　　　注： 在没有git commit前，使用 git checkout – Readme 可以恢复删除的文件（Readme）</p>
+<p>　　　　5、强制使用master覆盖本地代码</p>
+<p>　　　　　　　　$ git fetch –all<br>　　　　　　　　$ git reset –hard origin/master<br>　　　　　　　　$ git pull</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>　git branch                              #查看现有分支<br>　　　　　　git checkout -b dev               #创建并切换到分支dev， -b参数指切换dev分支<br>　　　　　　git checkout master              #从dev分支切换到master<br>　　　　　　git branch -D bug-101           #删除本地分支bug-101</p>
+<p>　　　　　　此时对项目进行修改<br>　　　　　　git add .                                              #提交到舞台区<br>　　　　　　git commit -m “update readme”         #提交到仓库<br>　　　　　　git push origin dev                             #将跟新内容提交到分支dev中而不是master中</p>
+<h2 id="将分支dev中的代码合并到主分支master中"><a href="#将分支dev中的代码合并到主分支master中" class="headerlink" title="将分支dev中的代码合并到主分支master中"></a>将分支dev中的代码合并到主分支master中</h2><p>git checkout master                           #从dev分支切换到master<br>　　　　　　git pull                                                #将master上的项目下载到本地<br>　　　　　　git merge dev                                     #在master上执行这条命令，试图合并master和dev（报错，master更新了）</p>
+<p>　　　　　　vim Readme                                      #将不一致的地方手动合并<br>　　　　　　git add .<br>　　　　　　git push origin master                        #手动合并后就可以将dev分支上修改的东西上传到GitHub的master中了</p>
+<p>　　　　　　git log –graph                                     #查看从什么地方出现的分支</p>
+<h2 id="分支取名规范"><a href="#分支取名规范" class="headerlink" title="分支取名规范"></a>分支取名规范</h2><p>1、方法1： 使用人名作为分支名（传统开发每个人负责一个功能模块）<br>2、方法2： 根据功能模块设置分支名（如： feature-100 hotfix-99） </p>
+<h2 id="git-stash使用"><a href="#git-stash使用" class="headerlink" title="git stash使用"></a>git stash使用</h2><p>1、在dev工作区正在写东西，突然有个bug需要立刻修改</p>
+<p>　　　　　　　　vim Readme              #突然出现了一个bug<br>　　　　　　　　git stash                     #将dev中未保存的文件放到一个临时区（以免带到了bug分支中）</p>
+<p>　　　　2、切换到bug-100分支，修复bug，并提交到本地仓库</p>
+<p>　　　　　　　　git checkout -b bug-100                   #创建并切换到bug-100分支<br>　　　　　　　　vim Readme                                    #在bug-100分支中修复bug<br>　　　　　　　　git add .                                            #将修改内容保存到bug-100分支的舞台区<br>　　　　　　　　git commit -m ‘commit-100-bug’      #提交到仓库</p>
+<p>　　　　3、切换到master合并bug-100并提交到GitHub</p>
+<p>　　　　　　　　git checkout master             #切换到master<br>　　　　　　　　git merge bug-100               #合并master和bug-100分支<br>　　　　　　　　git push origin master          #将修改后的内容推送到GitHub上（即可更新master）</p>
+<p>　　　　4、再次切换到dev分支，恢复以前的状态</p>
+<p>　　　　　　　　git checkout dev                 #再次切换到dev分支<br>　　　　　　　　git status                            #dev分支的工作区没有东西<br>　　　　　　　　more Readme                    #发现以前在dev工作区正在修改未提交到本地仓库的东西没有了<br>　　　　　　　　git stash list                       #查看使用git stash 临时保存的文件<br>　　　　　　　　git stash apply                   #恢复上次使用git stash 临时保存的文件<br>　　　　　　　　git status                            #可以看到又回到了，切换到bug-100分支前的修改状态了</p>
+<p>　　　　5、git stash的其他操作</p>
+<p>　　　　　　　　git stash drop                        #删除最久的那个使用git stash 保存的临时状态<br>　　　　　　　　git stash apply stash@{0}     #指定恢复到那个临时状态<br>　　　　　　　　git stash pop                         #恢复并删除上一个临时状态</p>
+<p>　　　　　　　　注1：git stash apply恢复，恢复后，stash内容并不删除，你需要使用命令git stash drop来删除<br>　　　　　　　　注2：另一种方式是使用git stash pop,恢复的同时把stash内容也删除了。</p>
 
       
 
@@ -189,7 +212,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -208,17 +231,8 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/19/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git使用方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/10/linux%E8%BF%90%E7%BB%B4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/12/19/linux%E8%BF%90%E7%BB%B4/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">linux运维</div>
       <i class="icon-circle-right"></i>
     </a>

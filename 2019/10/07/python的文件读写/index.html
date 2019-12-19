@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: python | Mr.Jiang的博客</title>
+  <title>python的文件读写 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;python&#x2F;index.html">
+  <meta name="description" content="在python对文件进行读写操作的时候，常常涉及到“读写模式”，整理了一下常见的几种模式，如下：">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的文件读写">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;07&#x2F;python%E7%9A%84%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="在python对文件进行读写操作的时候，常常涉及到“读写模式”，整理了一下常见的几种模式，如下：">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-19T04:02:48.276Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,74 +137,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python的文件读写" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2019-10-15T15:57:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">python高阶函数</a>
+    <h1 class="article-title" itemprop="name">
+      python的文件读写
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/python%E7%9A%84%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" class="archive-article-date">
+        
+        <a href="/2019/10/07/python%E7%9A%84%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" class="archive-article-date">
   	<time datetime="2019-10-07T10:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/python%E7%9A%84%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/">python的文件读写</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在python对文件进行读写操作的时候，常常涉及到“读写模式”，整理了一下常见的几种模式，如下：</p>
+<a id="more"></a>
+<p>读写模式：<br>r ：只读<br>r+ : 读写<br>w ： 新建（会对原有文件进行覆盖）<br>a ： 追加<br>b ： 二进制文件</p>
+<p>常用的模式有：<br>“a” 以“追加”模式打开， (从 EOF 开始, 必要时创建新文件)<br>“a+” 以”读写”模式打开<br>“ab” 以”二进制 追加”模式打开<br>“ab+” 以”二进制 读写”模式打开</p>
+<p>“w” 以”写”的方式打开<br>“w+” 以“读写”模式打开<br>“wb” 以“二进制 写”模式打开<br>“wb+” 以“二进制 读写”模式打开</p>
+<p>“r+” 以”读写”模式打开<br>“rb” 以”二进制 读”模式打开<br>“rb+” 以”二进制 读写”模式打开</p>
+<p>rU 或 Ua 以”读”方式打开, 同时提供通用换行符支持 (PEP 278)</p>
+<p>需注意：<br>1、使用“w”模式。文件若存在，首先要清空，然后重新创建<br>2、使用“a”模式。把所有要写入文件的数据都追加到文件的末尾，即使你使用了seek（）指向文件的其他地方，如果文件不存在，将自动被创建。</p>
+<p>3、f.read([size]) ：size未指定则返回整个文件，如果文件大小&gt;2倍内存则有问题。f.read()读到文件尾时返回”“(空字串)<br>4、file.readline() 返回一行<br>5、file.readline([size]) 返回包含size行的列表,size 未指定则返回全部行<br>6、”for line in f: print line” 通过迭代器访问<br>7、f.write(“hello\n”) #如果要写入字符串以外的数据,先将他转换为字符串.<br>8、f.tell() 返回一个整数,表示当前文件指针的位置(就是到文件头的比特数).<br>9、f.seek(偏移量,[起始位置]) ： 用来移动文件指针<br>偏移量 : 单位“比特”,可正可负<br>起始位置 : 0 -文件头, 默认值; 1 -当前位置; 2 -文件尾<br>10、f.close() 关闭文件<br>####以上。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -212,19 +185,59 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/10/15/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python高阶函数
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -280,9 +293,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
