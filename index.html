@@ -158,18 +158,8 @@
         <h2 id="Redis哨兵集群简要回答"><a href="#Redis哨兵集群简要回答" class="headerlink" title="Redis哨兵集群简要回答"></a>Redis哨兵集群简要回答</h2><ol>
 <li>监控（Monitoring）：哨兵（sentinel）会不断检查你的Master和Slave是否运作正常</li>
 <li>提醒（Notification）：当被监控的某个Redis出现问题时，哨兵（sentinel）可以通过API向管理员或其他应用程序发送通知</li>
-<li>自动故障迁移（Automatic failover）:当一个Master不能正常工作时，哨兵（sentinel）会开始第一次自动故障迁移操作，它会将失效Master的其中一个Slave升级为新的Master</li>
-</ol>
-<h4 id="Redis容灾机制"><a href="#Redis容灾机制" class="headerlink" title="Redis容灾机制"></a>Redis容灾机制</h4><ul>
-<li>当某个master服务下线时。所有的slave将无法同步数据，这对于redis集群就是灾难性的，此时哨兵自动将该master下的某个slave服务升级为master服务替代已下线的master服务继续处理请求，这是灾难的局面就被扭转回来，这就是容灾机制</li>
-</ul>
-<h4 id="Redis哨兵原理"><a href="#Redis哨兵原理" class="headerlink" title="Redis哨兵原理"></a>Redis哨兵原理</h4><p><img src="../../public/img/1.png" alt=""></p>
-<h4 id="Redis主流集群方案"><a href="#Redis主流集群方案" class="headerlink" title="Redis主流集群方案"></a>Redis主流集群方案</h4><ol>
-<li>redis cluster集群方案</li>
-<li>master/slave主从方案</li>
-<li>哨兵模式来进行主从替换以及故障恢复</li>
-</ol>
-
+<li>自动故障迁移（Automatic failover）:当一个Master不能正常工作时，哨兵（sentinel）会开始第一次自动故障迁移操作，它会将失效Master的其中一个Slave升级为新的Master
+        
       
 
       
