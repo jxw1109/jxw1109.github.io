@@ -135,6 +135,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-redis哨兵集群" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/">Redis哨兵集群</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/" class="archive-article-date">
+  	<time datetime="2020-01-19T05:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Redis哨兵集群简要回答"><a href="#Redis哨兵集群简要回答" class="headerlink" title="Redis哨兵集群简要回答"></a>Redis哨兵集群简要回答</h2><ol>
+<li>监控（Monitoring）：哨兵（sentinel）会不断检查你的Master和Slave是否运作正常</li>
+<li>提醒（Notification）：当被监控的某个Redis出现问题时，哨兵（sentinel）可以通过API向管理员或其他应用程序发送通知</li>
+<li>自动故障迁移（Automatic failover）:当一个Master不能正常工作时，哨兵（sentinel）会开始第一次自动故障迁移操作，它会将失效Master的其中一个Slave升级为新的Master</li>
+</ol>
+<h4 id="Redis容灾机制"><a href="#Redis容灾机制" class="headerlink" title="Redis容灾机制"></a>Redis容灾机制</h4><ul>
+<li>当某个master服务下线时。所有的slave将无法同步数据，这对于redis集群就是灾难性的，此时哨兵自动将该master下的某个slave服务升级为master服务替代已下线的master服务继续处理请求，这是灾难的局面就被扭转回来，这就是容灾机制</li>
+</ul>
+<h4 id="Redis哨兵原理"><a href="#Redis哨兵原理" class="headerlink" title="Redis哨兵原理"></a>Redis哨兵原理</h4><p><img src="../../public/img/1.png" alt=""></p>
+<h4 id="Redis主流集群方案"><a href="#Redis主流集群方案" class="headerlink" title="Redis主流集群方案"></a>Redis主流集群方案</h4><ol>
+<li>redis cluster集群方案</li>
+<li>master/slave主从方案</li>
+<li>哨兵模式来进行主从替换以及故障恢复</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python三器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -805,80 +881,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/12/18/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Windows基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/21/Windows%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">Windows终端命令集合</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/21/Windows%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2019-10-21T10:29:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>虽然随着计算机产业的发展，<br>Windows 操作系统的应用越来越广泛，<br>DOS 面临着被淘汰的命运，<br>但是因为它运行安全、稳定，<br>有的用户还在使用，所以一般Windows<br>的各种版本都与其兼容，<br>用户可以在Windows 系统下运行DOS，<br>中文版Windows XP 中的命令提示符进一步提高了<br>与DOS 下操作命令的兼容性，<br>用户可以在命令提示符直接输入中文调用文件。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">Windows系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/21/Windows%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">展开全文 >></a>
         </p>
       
 
