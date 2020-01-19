@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Mr.Jiang的博客</title>
+  <title>python线程 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="1.线程定义 线程是操作系统调度最小单位  线程被包含在进程中，是进程的实际运作单位  进程本身是无法自己执行的，要操作CPU，必须创建一个线程，线程是一系列指令的集合">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python线程">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;17&#x2F;python%E7%BA%BF%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="1.线程定义 线程是操作系统调度最小单位  线程被包含在进程中，是进程的实际运作单位  进程本身是无法自己执行的，要操作CPU，必须创建一个线程，线程是一系列指令的集合">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-18T11:05:16.210Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,74 +137,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python线程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-18T04:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/">python协程</a>
+    <h1 class="article-title" itemprop="name">
+      python线程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
+        
+        <a href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
   	<time datetime="2020-01-17T08:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/">python线程</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-线程定义"><a href="#1-线程定义" class="headerlink" title="1.线程定义"></a>1.线程定义</h2><ul>
+<li><p>线程是操作系统调度最小单位</p>
+</li>
+<li><p>线程被包含在进程中，是进程的实际运作单位</p>
+</li>
+<li><p>进程本身是无法自己执行的，要操作CPU，必须创建一个线程，线程是一系列指令的集合</p>
+<a id="more"></a></li>
+<li><p>拓展内容</p>
+<ul>
+<li>1.一条线程指的是进程中一个单一顺序的控制流，一个进程可以并发多个线程，每条线程并行执行不同任务</li>
+<li>2.无论启动多少个线程，有多少个CPU，在执行时会淡定的在同一时刻之允许一个线程执行</li>
+<li>3.在同一进程中的所有线程是共享一块内存空间的，不同进程内存空间不同</li>
+<li>4.在同一进程中的线程可以相互访问资源，线程可以操作同进程中的其他线程，但进程只能操作子进程</li>
+<li>5.两个进程通信，必须通过中间代理</li>
+<li>6.对主线程的修改可能会影响其他子线程，对主进程修改不会影响其他进程因为进程间内存相互独立，但同一进程下的线程共享内存</li>
+</ul>
+</li>
+<li><p>进程与线程的区别</p>
+<ul>
+<li>进程包含线程</li>
+<li>线程共享内存空间</li>
+<li>进程内存独立</li>
+<li>进程能生成子进程，子进程之间互相不能访问</li>
+<li>创建新进程需要对其父进程进行克隆，而创建线程很简单</li>
+<li>线程可以帮应用程序同时做几件事</li>
+</ul>
+</li>
+<li><p>for循环同时启动多个线程</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayhi</span><span class="params">(num)</span>:</span> <span class="comment">#定义每个线程要运行的函数</span></span><br><span class="line">    print(<span class="string">"running on number:%s"</span> %num)</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">50</span>):</span><br><span class="line">    t = threading.Thread(target=sayhi,args=(<span class="string">'t-%s'</span>%i,))</span><br><span class="line">    t.start()</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- t.join()：实现所有线程都执行结束后再执行主线程</span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayhi</span><span class="params">(num)</span>:</span> <span class="comment">#定义每个线程要运行的函数</span></span><br><span class="line">    print(<span class="string">"running on number:%s"</span> %num)</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">t_objs = []    <span class="comment">#将进程实例对象存储在这个列表中</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">50</span>):</span><br><span class="line">    t = threading.Thread(target=sayhi,args=(<span class="string">'t-%s'</span>%i,))</span><br><span class="line">    t.start()          <span class="comment">#启动一个线程，程序不会阻塞</span></span><br><span class="line">    t_objs.append(t)</span><br><span class="line">print(threading.active_count())    <span class="comment">#打印当前活跃进程数量</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> t_objs: <span class="comment">#利用for循环等待上面50个进程全部结束</span></span><br><span class="line">    t.join()     <span class="comment">#阻塞某个程序</span></span><br><span class="line">print(threading.current_thread())    <span class="comment">#打印执行这个命令进程</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"----------------all threads has finished....."</span>)</span><br><span class="line">print(threading.active_count())</span><br><span class="line">print(<span class="string">'cost time:'</span>,time.time() - start_time)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>setDaemon(): 守护线程，主线程退出时，需要子线程随主线程退出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayhi</span><span class="params">(num)</span>:</span> <span class="comment">#定义每个线程要运行的函数</span></span><br><span class="line">    print(<span class="string">"running on number:%s"</span> %num)</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">50</span>):</span><br><span class="line">    t = threading.Thread(target=sayhi,args=(<span class="string">'t-%s'</span>%i,))</span><br><span class="line">    t.setDaemon(<span class="literal">True</span>)  <span class="comment">#把当前线程变成守护线程，必须在t.start()前设置</span></span><br><span class="line">    t.start()          <span class="comment">#启动一个线程，程序不会阻塞</span></span><br><span class="line">print(<span class="string">'cost time:'</span>,time.time() - start_time)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GIL全局解释器锁</p>
+<ul>
+<li>在一个进程内，同一时刻只能有一个线程执行</li>
+</ul>
+</li>
+<li><p>线程锁</p>
+<ul>
+<li>当一个线程对某个资源进行CPU计算的操作时加上一个线程锁，只有当前线程完成主动释放锁，其他线程才能对其操作</li>
+<li>可以防止还未计算完成，释放GIL锁后其他线程对这个资源操作导致混乱问题</li>
+<li>实例  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line">lock = threading.Lock()          <span class="comment">#1 生成全局锁</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addNum</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> num                  <span class="comment">#2 在每个线程中都获取这个全局变量</span></span><br><span class="line">    print(<span class="string">'--get num:'</span>,num )</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    lock.acquire()              <span class="comment">#3 修改数据前加锁</span></span><br><span class="line">    num  -= <span class="number">1</span>                   <span class="comment">#4 对此公共变量进行-1操作</span></span><br><span class="line">    lock.release()              <span class="comment">#5 修改后释放</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Semaphore(信号量)</p>
+<ul>
+<li>互斥锁，同时只允许一个线程更改数据，而Semaphore是同时允许一定数量的线程更改数据</li>
+</ul>
+</li>
+<li><p>线程池实现并发</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> concurrent.futures <span class="keyword">import</span> ThreadPoolExecutor</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fetch_request</span><span class="params">(url)</span>:</span></span><br><span class="line">    result = requests.get(url)</span><br><span class="line">    print(result.text)</span><br><span class="line"></span><br><span class="line">url_list = [</span><br><span class="line">    <span class="string">'https://www.baidu.com'</span>,</span><br><span class="line">    <span class="string">'https://www.google.com/'</span>,         <span class="comment">#google页面会卡住，知道页面超时后这个进程才结束</span></span><br><span class="line">    <span class="string">'http://dig.chouti.com/'</span>,          <span class="comment">#chouti页面内容会直接返回，不会等待Google页面的返回</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">pool = ThreadPoolExecutor(<span class="number">10</span>)            <span class="comment"># 创建一个线程池，最多开10个线程</span></span><br><span class="line"><span class="keyword">for</span> url <span class="keyword">in</span> url_list:</span><br><span class="line">    pool.submit(fetch_request,url)       <span class="comment"># 去线程池中获取一个线程，线程去执行fetch_request方法</span></span><br><span class="line"></span><br><span class="line">pool.shutdown(<span class="literal">True</span>)                      <span class="comment"># 主线程自己关闭，让子线程自己拿任务执行</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -212,95 +232,64 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-16T07:56:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python协程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python进程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/">python进程</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-01-14T00:50:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/">zabbix安装</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -356,8 +345,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

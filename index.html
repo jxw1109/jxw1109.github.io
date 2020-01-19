@@ -135,6 +135,247 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python协程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/">python协程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-01-18T04:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="协程定义"><a href="#协程定义" class="headerlink" title="协程定义"></a>协程定义</h2><ul>
+<li>协程，又称微线程，迁程，协程是一种用户态的轻量级线程</li>
+<li>线程的切换回保存到CPU的栈里，协程拥有自己的寄存器上下文和栈</li>
+<li>协程调度切换时，将寄存器上下文和栈保存到其他地方，在切换回来时，恢复先前保存的寄存器上下文和栈</li>
+<li>协程能保留上一次调用时的状态（所有局部状态的组合），每次过程重入时，就相当于进入上一次调用的状态</li>
+<li>协程最重要的是在单线程的条件下实现并发，但实际上还是串行的<h2 id="协程缺点"><a href="#协程缺点" class="headerlink" title="协程缺点"></a>协程缺点</h2>协程本质是个单线程，不能同时将单个CPU的多个核用上，协程需要和进程配合才能运行在多CPU上线程阻塞操作<h2 id="协程处理大并发"><a href="#协程处理大并发" class="headerlink" title="协程处理大并发"></a>协程处理大并发</h2></li>
+<li>协程遇到I/O操作就会切换</li>
+<li>可以使用gevent库实现并发同步或异步编程<h2 id="使用协程处理并发"><a href="#使用协程处理并发" class="headerlink" title="使用协程处理并发"></a>使用协程处理并发</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gevent</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> gevent <span class="keyword">import</span> monkey</span><br><span class="line"></span><br><span class="line">monkey.patch_all()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这些请求谁先回来就先处理谁</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fetch_async</span><span class="params">(method, url, req_kwargs)</span>:</span></span><br><span class="line">    response = requests.request(method=method, url=url, **req_kwargs)</span><br><span class="line">    print(response.url, response.content)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ##### 发送请求 #####</span></span><br><span class="line">gevent.joinall([</span><br><span class="line">    gevent.spawn(fetch_async, method=<span class="string">'get'</span>, url=<span class="string">'https://www.python.org/'</span>, req_kwargs=&#123;&#125;),</span><br><span class="line">    gevent.spawn(fetch_async, method=<span class="string">'get'</span>, url=<span class="string">'https://www.google.com/'</span>, req_kwargs=&#123;&#125;),</span><br><span class="line">    gevent.spawn(fetch_async, method=<span class="string">'get'</span>, url=<span class="string">'https://github.com/'</span>, req_kwargs=&#123;&#125;),</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/">python线程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-01-17T08:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-线程定义"><a href="#1-线程定义" class="headerlink" title="1.线程定义"></a>1.线程定义</h2><ul>
+<li><p>线程是操作系统调度最小单位</p>
+</li>
+<li><p>线程被包含在进程中，是进程的实际运作单位</p>
+</li>
+<li><p>进程本身是无法自己执行的，要操作CPU，必须创建一个线程，线程是一系列指令的集合</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/">python进程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-01-16T07:56:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-进程定义"><a href="#1-进程定义" class="headerlink" title="1.进程定义"></a>1.进程定义</h2><ul>
+<li>进程是资源分配最小单位</li>
+<li>当一个可执行程序被系统执行后就变成了一个进程
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-zabbix安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -666,154 +907,10 @@
 
 
   
-    <article id="post-python高阶函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/15/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">python高阶函数</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/15/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2019-10-15T15:57:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>高阶函数：一个函数可以作为参数传给另外一个函数，或者一个函数的返回值为另外一个函数（若返回值为该函数本身，则为递归），满足其一则为高阶函数。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/15/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python的文件读写" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/python%E7%9A%84%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/">python的文件读写</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/07/python%E7%9A%84%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" class="archive-article-date">
-  	<time datetime="2019-10-07T10:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在python对文件进行读写操作的时候，常常涉及到“读写模式”，整理了一下常见的几种模式，如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/07/python%E7%9A%84%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
