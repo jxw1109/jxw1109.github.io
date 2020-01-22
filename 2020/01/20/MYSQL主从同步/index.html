@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Redis哨兵集群 | Mr.Jiang的博客</title>
+  <title>MYSQL主从同步 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis哨兵集群简要回答 监控（Monitoring）：哨兵（sentinel）会不断检查你的Master和Slave是否运作正常 提醒（Notification）：当被监控的某个Redis出现问题时，哨兵（sentinel）可以通过API向管理员或其他应用程序发送通知 自动故障迁移（Automatic failover）:当一个Master不能正常工作时，哨兵（sentinel）会开始第一次自">
+  <meta name="description" content="MYSQL主从同步概念MySQL主从同步是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。MySQL 默认采用异步复制方式，这样从节点不用一直访问主服务器来更新自己的数据，数据的更新可以在远程连接上进行，从节点可以复制主数据库中的所有数据库或者特定的数据库，或者特定的表。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis哨兵集群">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;19&#x2F;redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4&#x2F;index.html">
+<meta property="og:title" content="MYSQL主从同步">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;20&#x2F;MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
-<meta property="og:description" content="Redis哨兵集群简要回答 监控（Monitoring）：哨兵（sentinel）会不断检查你的Master和Slave是否运作正常 提醒（Notification）：当被监控的某个Redis出现问题时，哨兵（sentinel）可以通过API向管理员或其他应用程序发送通知 自动故障迁移（Automatic failover）:当一个Master不能正常工作时，哨兵（sentinel）会开始第一次自">
+<meta property="og:description" content="MYSQL主从同步概念MySQL主从同步是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。MySQL 默认采用异步复制方式，这样从节点不用一直访问主服务器来更新自己的数据，数据的更新可以在远程连接上进行，从节点可以复制主数据库中的所有数据库或者特定的数据库，或者特定的表。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-19T05:53:58.204Z">
+<meta property="og:updated_time" content="2020-01-22T01:14:58.558Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -136,40 +136,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-redis哨兵集群" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MYSQL主从同步" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Redis哨兵集群
+      MYSQL主从同步
     </h1>
   
 
         
-        <a href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2020-01-19T05:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
+        <a href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
+  	<time datetime="2020-01-20T01:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Redis哨兵集群简要回答"><a href="#Redis哨兵集群简要回答" class="headerlink" title="Redis哨兵集群简要回答"></a>Redis哨兵集群简要回答</h2><ol>
-<li>监控（Monitoring）：哨兵（sentinel）会不断检查你的Master和Slave是否运作正常</li>
-<li>提醒（Notification）：当被监控的某个Redis出现问题时，哨兵（sentinel）可以通过API向管理员或其他应用程序发送通知</li>
-<li>自动故障迁移（Automatic failover）:当一个Master不能正常工作时，哨兵（sentinel）会开始第一次自动故障迁移操作，它会将失效Master的其中一个Slave升级为新的Master<a id="more"></a>
-<h4 id="Redis容灾机制"><a href="#Redis容灾机制" class="headerlink" title="Redis容灾机制"></a>Redis容灾机制</h4></li>
-</ol>
-<ul>
-<li>当某个master服务下线时。所有的slave将无法同步数据，这对于redis集群就是灾难性的，此时哨兵自动将该master下的某个slave服务升级为master服务替代已下线的master服务继续处理请求，这是灾难的局面就被扭转回来，这就是容灾机制</li>
+        <h3 id="MYSQL主从同步概念"><a href="#MYSQL主从同步概念" class="headerlink" title="MYSQL主从同步概念"></a>MYSQL主从同步概念</h3><p><strong>MySQL<br>主从同步是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。<br>MySQL 默认采用异步复制方式，这样从节点不用一直访问主服务器来更新自己的数据，<br>数据的更新可以在远程连接上进行，<br>从节点可以复制主数据库中的所有数据库或者特定的数据库，<br>或者特定的表。</strong></p>
+<a id="more"></a>
+<h3 id="简要回答"><a href="#简要回答" class="headerlink" title="简要回答"></a>简要回答</h3><ul>
+<li>构建主从热备，当某天数据库宕机或或数据丢失情况，可以有备份数据库继续工作。</li>
+<li>降低IO频次，多库之间可以合理分配读写压力，提高单个数据库服务的数据库访问压力。 </li>
+<li>隔离读写，在某些锁表情况下，可以使数据库的读操作继续进行。</li>
 </ul>
-<h4 id="Redis主流集群方案"><a href="#Redis主流集群方案" class="headerlink" title="Redis主流集群方案"></a>Redis主流集群方案</h4><ol>
-<li>redis cluster集群方案</li>
-<li>master/slave主从方案</li>
-<li>哨兵模式来进行主从替换以及故障恢复</li>
-</ol>
+<h3 id="MYSQLd读写分离、架构"><a href="#MYSQLd读写分离、架构" class="headerlink" title="MYSQLd读写分离、架构"></a>MYSQLd读写分离、架构</h3><p><strong>在开发工作中，有时候会遇见某个sql 语句需要锁表，导致暂时不能使用读的服务，这样就会影响现有业务，使用主从复制，让主库负责写，从库负责读，这样，即使主库出现了锁表的情景，通过读从库也可以保证业务的正常运作。</strong></p>
+<p><strong>随着系统中业务访问量的增大，如果是单机部署数据库，就会导致I/O访问频率过高。有了主从复制，增加多个数据存储节点，将负载分布在多个从节点上，降低单机磁盘I/O访问的频率，提高单个机器的I/O性能。</strong></p>
+<h3 id="MYSQL主从同步配置步骤"><a href="#MYSQL主从同步配置步骤" class="headerlink" title="MYSQL主从同步配置步骤"></a>MYSQL主从同步配置步骤</h3><ul>
+<li>master开启二进制日志、配置唯一ID<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure></li>
+<li>slave配置唯一的ID</li>
+<li>master创建登陆授权账号</li>
+<li>记录master二进制文件的位置信息</li>
+<li>slave配置IP地址和登陆授权，二进制日志文件名和位置</li>
+</ul>
 
       
 
@@ -191,18 +193,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          MYSQL主从同步
+          MYSQL数据备份
         
       </div>
     </a>
   
   
-    <a href="/2020/01/19/python%E4%B8%89%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python三器</div>
+    <a href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis哨兵集群</div>
       <i class="icon-circle-right"></i>
     </a>
   
