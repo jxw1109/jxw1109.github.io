@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MYSQL数据备份 | Mr.Jiang的博客</title>
+  <title>redis五大数据类型 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么要MYSQL数据库备份 做灾难恢复，对损坏的数据进行恢复和还原 需求改变，因需求改变而需要把数据还原到改变之前 测试，测试新功能是否可用">
+  <meta name="description" content="redis中所有数据结构都以唯一的key字符串作为名称，然后通过这个唯一的key来获取对应的value 不同的数据类型数据结构区别在于value结构不一样">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MYSQL数据备份">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;21&#x2F;MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD&#x2F;index.html">
+<meta property="og:title" content="redis五大数据类型">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;22&#x2F;redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
-<meta property="og:description" content="为什么要MYSQL数据库备份 做灾难恢复，对损坏的数据进行恢复和还原 需求改变，因需求改变而需要把数据还原到改变之前 测试，测试新功能是否可用">
+<meta property="og:description" content="redis中所有数据结构都以唯一的key字符串作为名称，然后通过这个唯一的key来获取对应的value 不同的数据类型数据结构区别在于value结构不一样">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-22T01:06:56.344Z">
+<meta property="og:updated_time" content="2020-01-26T09:19:08.850Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -136,46 +136,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MYSQL数据备份" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-redis五大数据类型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MYSQL数据备份
+      redis五大数据类型
     </h1>
   
 
         
-        <a href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/" class="archive-article-date">
-  	<time datetime="2020-01-21T00:54:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
+        <a href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-01-22T08:53:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为什么要MYSQL数据库备份"><a href="#为什么要MYSQL数据库备份" class="headerlink" title="为什么要MYSQL数据库备份"></a>为什么要MYSQL数据库备份</h3><ul>
-<li>做灾难恢复，对损坏的数据进行恢复和还原</li>
-<li>需求改变，因需求改变而需要把数据还原到改变之前</li>
-<li>测试，测试新功能是否可用</li>
-</ul>
+        <p><em>redis中所有数据结构都以唯一的key字符串作为名称，然后通过这个唯一的key来获取对应的value</em></p>
+<p><em>不同的数据类型数据结构区别在于value结构不一样</em></p>
 <a id="more"></a>
 
-<p><strong>1.备份命令格式：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h主机名 -P端口 -u用户名 -p密码 --database 数据库名 &gt; 文件名.sql</span><br><span class="line">例子：mysqldump -uroot -p123 --database shopping &gt; mydb.sql</span><br></pre></td></tr></table></figure>
-
-<p><strong>2. 同时备份多个库：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：mysqldump -h主机名 -P端口 -u用户名 -p密码 --databases 数据库名<span class="number">1</span> 数据库名<span class="number">2</span> 数据库名<span class="number">3</span> &gt; 文件名.sql</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.备份所有数据库：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h主机名 -P端口 -u用户名 -p密码 --all-databases &gt; 文件名.sql</span><br></pre></td></tr></table></figure>
-<p><strong>4.备份数据库结构，不备份数据：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h主机名 -P端口 -u用户名 -p密码 --no-data 数据库名<span class="number">1</span> 数据库名<span class="number">2</span> 数据库名<span class="number">3</span> &gt; 文件名.sql</span><br></pre></td></tr></table></figure>
-
-<h4 id="数据还原"><a href="#数据还原" class="headerlink" title="数据还原"></a>数据还原</h4><p><strong><em>1.进入mysql命令行：</em></strong><br><em>mysql -uroot -p</em></p>
-<p><strong><em>2.使用备份文件，还原数据库：</em></strong><br><em>source /home/mydb.sql;</em></p>
+<h4 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h4><ul>
+<li>数据结构<ul>
+<li>字符串value数据结构类似于数据，采用与分配容易空间来减少内存频繁分配</li>
+<li>当字符串长度小于1M时，扩容就是加倍现有空间</li>
+<li>如果字符串长度操作1M时，扩容最多扩容1M空间，字符串最大长度为512M</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>字符串最常见的用途是缓存用户信息，我们将用户信息使用JSON序列化成字符串</li>
+<li>读取用户信息时会进行反序列化操作</li>
+</ul>
+</li>
+</ul>
+<h4 id="List（列表）"><a href="#List（列表）" class="headerlink" title="List（列表）"></a>List（列表）</h4><ul>
+<li>数据结构<ul>
+<li>列表的数据结构是双向链表，意味着插入和删除的时间复杂度为O(1)，索引的时间复杂度为O(n)</li>
+<li>当列表弹出最后一个元素后，该数据结构会自动删除，内存被回收</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>celery异步消息队列</li>
+<li>购物车模式</li>
+</ul>
+</li>
+</ul>
+<h4 id="Hash（字典）"><a href="#Hash（字典）" class="headerlink" title="Hash（字典）"></a>Hash（字典）</h4><ul>
+<li>数据结构<ul>
+<li>redis中的字典也是HashMap（数组+列表）的二维结构</li>
+<li>不同的是redis的字典的值只能是字符串</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>hash可以用来缓存用户信息，与字符串一次性全部序列化整个对象不同，hash可以对每个字段进行单独存储</li>
+<li>获取用户信息时，节约网络流量</li>
+<li>缺点：hash的存储要高于单个字符串</li>
+</ul>
+</li>
+</ul>
+<h4 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h4><ul>
+<li>数据类型<ul>
+<li>集合是通过散列表（hashtable）来保证自己存储的每个字符串都是各不相同的（这些散列表只有键，但没有相对应的值），redis中的集合是无序的</li>
+<li>set可以理解为将散列表的键单独存储的一种数据类型</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>进行去重功能</li>
+<li>进行交集，并集操作，查找元素的共同点</li>
+</ul>
+</li>
+</ul>
+<h4 id="Zset（有序集合）"><a href="#Zset（有序集合）" class="headerlink" title="Zset（有序集合）"></a>Zset（有序集合）</h4><ul>
+<li>数据类型<ul>
+<li>像是skiplist与dict的结合，skiplist是一种跳跃表结构，用于有序集合中快速查找，有序列表是使用skiplist和dict结合实现的，skiplist用来保障有序性和访问查找性能，dict就用来存储元素信息，并且dict的访问时间复杂度为O(1)。</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>范围查询</li>
+<li>排行榜或topN功能    </li>
+</ul>
+</li>
+</ul>
 
       
 
@@ -197,18 +242,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/23/redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          redis五大数据类型
+          redis分布式锁
         
       </div>
     </a>
   
   
-    <a href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MYSQL主从同步</div>
+    <a href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MYSQL数据备份</div>
       <i class="icon-circle-right"></i>
     </a>
   
