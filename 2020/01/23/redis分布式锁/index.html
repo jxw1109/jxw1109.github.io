@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Mr.Jiang的博客">
 <meta property="og:description" content="什么是分布式锁分布式锁是控制分布式系统或不同系统之间共同访问的共享资源的一种锁，如果不同的系统或同一个系统的不同主机之间共享了某个资源时，往往需要互斥来防止彼此干扰来保证一致性">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-26T09:39:10.533Z">
+<meta property="og:updated_time" content="2020-01-26T09:40:40.571Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -189,13 +189,13 @@
 </ul>
 </li>
 <li>锁的最小有效时间为：<ul>
-<li>TTL（存活时间）-总共花费时长-漂移时长<h4 id="分布式锁总结"><a href="#分布式锁总结" class="headerlink" title="分布式锁总结"></a>分布式锁总结</h4></li>
+<li>TTL（存活时间）-总共花费时长-漂移时长</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p>1.TTL时长 要大于正常业务执行的时间+获取所有redis服务消耗时间+时钟漂移</p>
+<h4 id="分布式锁总结"><a href="#分布式锁总结" class="headerlink" title="分布式锁总结"></a>分布式锁总结</h4><p>1.TTL时长 要大于正常业务执行的时间+获取所有redis服务消耗时间+时钟漂移</p>
 <p>2.获取redis所有服务消耗时间要 远小于TTL时间，并且获取成功的锁个数要 在总数的一般以上:N/2+1</p>
 <p>3.尝试获取每个redis实例锁时的时间要 远小于TTL时间</p>
 <p>4.尝试获取所有锁失败后 重新尝试一定要有一定次数限制</p>
@@ -221,6 +221,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/01/25/mysql%E4%BA%8B%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MYSQL事务
+        
+      </div>
+    </a>
   
   
     <a href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
