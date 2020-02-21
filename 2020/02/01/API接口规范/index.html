@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Jiang的博客</title>
+  <title>API接口规范 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="请求方式   请求方式 描述    GET 获取数据   POST 新增数据   PUT 更新数据   DELETE 删除数据">
+<meta name="keywords" content="web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="API接口规范">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;01&#x2F;API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="请求方式   请求方式 描述    GET 获取数据   POST 新增数据   PUT 更新数据   DELETE 删除数据">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-21T09:12:01.687Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,371 +137,242 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-API接口规范" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      API接口规范
+    </h1>
+  
+
+        
+        <a href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" class="archive-article-date">
+  	<time datetime="2020-02-01T08:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h4><table>
+<thead>
+<tr>
+<th>请求方式</th>
+<th align="right">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td align="right">获取数据</td>
+</tr>
+<tr>
+<td>POST</td>
+<td align="right">新增数据</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td align="right">更新数据</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td align="right">删除数据</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+<h4 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h4><ul>
+<li><p>Query：url?后面的参数，存放请求接口的参数数据。</p>
+</li>
+<li><p>Header：请求头，存放公共参数、requestId、token、加密字段等。</p>
+</li>
+<li><p>Body：Body 体，存放请求接口的参数数据。</p>
+</li>
+</ul>
+<h4 id="公共参数"><a href="#公共参数" class="headerlink" title="公共参数"></a>公共参数</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>network</td>
+<td>网络</td>
+<td>WIFI、4G</td>
+</tr>
+<tr>
+<td>operator</td>
+<td>运营商</td>
+<td>中国联通/移动</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>平台</td>
+<td>iOS、Android</td>
+</tr>
+<tr>
+<td>system</td>
+<td>系统</td>
+<td>ios 13.3、android 9</td>
+</tr>
+<tr>
+<td>device</td>
+<td>设备型号</td>
+<td>iPhone XR、小米9</td>
+</tr>
+<tr>
+<td>udid</td>
+<td>设备唯一标示</td>
+<td></td>
+</tr>
+<tr>
+<td>apiVersion</td>
+<td>API 版本号</td>
+<td>v1.1、v1.2</td>
+</tr>
+</tbody></table>
+<h4 id="安全规范"><a href="#安全规范" class="headerlink" title="安全规范"></a>安全规范</h4><ul>
+<li>敏感参数加密处理：登录密码、支付密码，需加密后传输，建议使用<strong>非对称加密</strong>。</li>
+<li>敏感数据脱敏处理：用户手机号、用户邮箱、身份证号、支付账号、邮寄地址等要进行脱敏，部分数据加 * 号处理。<h4 id="其他规范"><a href="#其他规范" class="headerlink" title="其他规范"></a>其他规范</h4></li>
+<li>参数命名规范 建议使用驼峰命名，首字母小写。</li>
+<li>requestId 建议携带唯一标示追踪问题。</li>
+</ul>
+<h4 id="返回参数"><a href="#返回参数" class="headerlink" title="返回参数"></a>返回参数</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>Number</td>
+<td>结果码</td>
+<td>成功=200，失败=1，未登录=401，无权限=403</td>
+</tr>
+<tr>
+<td>showMsg</td>
+<td>String</td>
+<td>显示信息</td>
+<td>系统繁忙，稍后重试</td>
+</tr>
+<tr>
+<td>errorMsg</td>
+<td>String</td>
+<td>错误信息</td>
+<td>便于研发定位问题</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>数据</td>
+<td>JSON 格式</td>
+</tr>
+</tbody></table>
+<h4 id="其他规范-1"><a href="#其他规范-1" class="headerlink" title="其他规范"></a>其他规范</h4><ul>
+<li>属性名命名时，建议使用驼峰命名，首字母小写。</li>
+<li>属性值为空时，严格按类型返回默认值。</li>
+<li>金额类型/时间日期类型的属性值，如果仅用来显示，建议后端返回可以显示的字符串。</li>
+<li>业务逻辑的状态码和对应的文案，建议后端两者都返回。</li>
+<li>调用方不需要的属性，不要返回。</li>
+</ul>
+<h4 id="日志平台设计"><a href="#日志平台设计" class="headerlink" title="日志平台设计"></a>日志平台设计</h4><p><em>日志平台有利于故障定位和日志统计分析。</em></p>
+<p><strong>日志平台的搭建可以使用的是 ELK 组件，使用 Logstash 进行收集日志文件，使用 Elasticsearch 引擎进行搜索分析，最终在 Kibana 平台展示出来。</strong></p>
+<h4 id="幂等性设计"><a href="#幂等性设计" class="headerlink" title="幂等性设计"></a>幂等性设计</h4><p>我们无法保证接口的每一次调用都是有返回结果的，要考虑到出现网络异常的情况。</p>
+<p>举个例子，订单创建时，我们需要去减库存，这时接口发生了超时，调用方进行了重试，这时是否会多扣一次库存？</p>
+<p>解决这类问题有 2 种方案：</p>
+<p>一、服务方提供相应的查询接口，调用方在请求超时后进行查询，如果查到了，表示请求处理成功了，没查到就走失败流程。</p>
+<p>二、调用方只管重试，服务方保证一次和多次的请求结果是一样的。</p>
+<p>对于第二种方案，就需要服务方的接口支持幂等性。</p>
+<p>大致设计思路是这样的：</p>
+<ul>
+<li>调用接口前，先获取一个全局唯一的令牌（Token）</li>
+<li>调用接口时，将 Token 放到 Header 头中</li>
+<li>解析 Header 头，验证是否为有效 Token，无效直接返回失败</li>
+<li>完成业务逻辑后，将业务结果与 Token 进行关联存储，设置失效时间</li>
+<li>重试时不要重新获取 Token，用要上次的 Token</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-01-22T08:53:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">redis五大数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/" class="archive-article-date">
-  	<time datetime="2020-01-21T00:54:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/">MYSQL数据备份</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-01-20T01:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">MYSQL主从同步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2020-01-19T05:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/">Redis哨兵集群</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/python%E4%B8%89%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-01-19T04:27:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/python%E4%B8%89%E5%99%A8/">python三器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">web</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-18T04:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/">python协程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-17T08:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/">python线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-16T07:56:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/">python进程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-01-14T00:50:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/">zabbix安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="archive-article-date">
-  	<time datetime="2019-12-25T00:45:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">Nginx反向代理与负载均衡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python中map函数的解释和可视化
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/01/27/Linux%E5%91%BD%E4%BB%A4100/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux命令100+</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -554,8 +429,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

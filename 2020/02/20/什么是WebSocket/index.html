@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Jiang的博客</title>
+  <title>什么是WebSocket | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="1.WebSSH webssh 泛指一种技术可以在网页上实现一个 SSH 终端。  ssh终端：用来通过ssh协议，连接服务器进行管理  运维开发方向：堡垒机登录、线上机器管理（因为运维人员不可能24小时携带电脑）  在线编程：提供一个编程环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是WebSocket">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;20&#x2F;%E4%BB%80%E4%B9%88%E6%98%AFWebSocket&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="1.WebSSH webssh 泛指一种技术可以在网页上实现一个 SSH 终端。  ssh终端：用来通过ssh协议，连接服务器进行管理  运维开发方向：堡垒机登录、线上机器管理（因为运维人员不可能24小时携带电脑）  在线编程：提供一个编程环境">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-21T10:09:48.896Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,371 +136,144 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-什么是WebSocket" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      什么是WebSocket
+    </h1>
+  
+
+        
+        <a href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/" class="archive-article-date">
+  	<time datetime="2020-02-20T10:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-WebSSH"><a href="#1-WebSSH" class="headerlink" title="1.WebSSH"></a>1.WebSSH</h4><ul>
+<li><p>webssh 泛指一种技术可以在网页上实现一个 SSH 终端。</p>
+</li>
+<li><p>ssh终端：用来通过ssh协议，连接服务器进行管理</p>
+</li>
+<li><p>运维开发方向：堡垒机登录、线上机器管理（因为运维人员不可能24小时携带电脑）</p>
+</li>
+<li><p>在线编程：提供一个编程环境</p>
+<a id="more"></a>
+<h4 id="2-websocket"><a href="#2-websocket" class="headerlink" title="2.websocket"></a>2.websocket</h4></li>
+<li><p><strong>什么是websocket</strong></p>
+<ul>
+<li>webSocket是一种在单个TCP连接上进行全双工通信的协议</li>
+<li>客户端和服务器之间的数据交换变得更加简单，<strong>允许服务端主动向客户端推送数据</strong>。</li>
+<li>浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输</li>
+</ul>
+</li>
+<li><p><strong>websocket与http区别</strong></p>
+<ul>
+<li>http请求建立连接只能发送一次请求,不能有服务器端主动向客户端发送请求</li>
+<li>websocket建立的长连接，一次连接，后续一直通信，这样节省资源，可以有客户端发送请求给服务器端</li>
+</ul>
+</li>
+<li><p><strong>远古时期解决方案就是轮询</strong></p>
+<ul>
+<li>客户端以设定的时间间隔周期性地向服务端发送请求，频繁地查询是否有新的数据改动（浪费流量和资源）</li>
+</ul>
+</li>
+<li><p><strong>webSocket应用场景？</strong></p>
+<ul>
+<li><strong>聊天软件：</strong>最著名的就是微信，QQ，这一类社交聊天的app</li>
+<li><strong>弹幕：</strong>各种直播的弹幕窗口</li>
+<li><strong>在线教育：</strong>可以视频聊天、即时聊天以及其与别人合作一起在网上讨论问题…</li>
+</ul>
+</li>
+<li><p><strong>websocket原理</strong></p>
+<ul>
+<li>websocket首先借助http协议（通过在http头部设置属性，请求和服务器进行协议升级，升级协议为websocket的应用层协议）</li>
+<li>建立好和服务器之间的数据流，数据流之间底层还是依靠TCP协议；</li>
+<li>websocket会接着使用这条建立好的数据流和服务器之间保持通信；</li>
+<li>由于复杂的网络环境，数据流可能会断开，在实际使用过程中，我们在onFailure或者onClosing回调方法中，实现重连</li>
+</ul>
+</li>
+<li><p>websocket<strong>实现心跳检测的思路</strong></p>
+<ul>
+<li>通过setInterval定时任务每个3秒钟调用一次reconnect函数</li>
+<li>reconnect会通过socket.readyState来判断这个websocket连接是否正常</li>
+<li>如果不正常就会触发定时连接，每4s钟重试一次，直到连接成功</li>
+<li>如果是网络断开的情况下，在指定的时间内服务器端并没有返回心跳响应消息，因此服务器端断开了。</li>
+<li>服务断开我们使用ws.close关闭连接，在一段时间后，可以通过 onclose事件监听到。</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-01-22T08:53:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">redis五大数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/" class="archive-article-date">
-  	<time datetime="2020-01-21T00:54:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/">MYSQL数据备份</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-01-20T01:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">MYSQL主从同步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2020-01-19T05:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/">Redis哨兵集群</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/python%E4%B8%89%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-01-19T04:27:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/python%E4%B8%89%E5%99%A8/">python三器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-18T04:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/">python协程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-17T08:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/">python线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-16T07:56:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/">python进程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-01-14T00:50:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/">zabbix安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="archive-article-date">
-  	<time datetime="2019-12-25T00:45:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">Nginx反向代理与负载均衡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          支付宝第三方支付
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/02/19/%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">实现单点登录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -554,8 +330,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

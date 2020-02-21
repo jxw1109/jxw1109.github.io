@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Jiang的博客</title>
+  <title>支付宝第三方支付 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="第一：生成支付的url 在电脑本地生成公钥、私钥（app公钥、app私钥） APP的公钥要上传到沙箱环境，然后我们要下载支付宝公钥  提供（实例化Alipay对象）：appid、支付宝公钥、app私钥 提供（拼接付款的url）：订单id、金额、标题、return_url(付款成功的回调接口)、notify_url(付款成功后的异步通知)   第二：主动查询支付结果 提供（实例化Alipay对象）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="支付宝第三方支付">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;21&#x2F;%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="第一：生成支付的url 在电脑本地生成公钥、私钥（app公钥、app私钥） APP的公钥要上传到沙箱环境，然后我们要下载支付宝公钥  提供（实例化Alipay对象）：appid、支付宝公钥、app私钥 提供（拼接付款的url）：订单id、金额、标题、return_url(付款成功的回调接口)、notify_url(付款成功后的异步通知)   第二：主动查询支付结果 提供（实例化Alipay对象）">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;13.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;14.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;16.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;17.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;18.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;20.png">
+<meta property="og:updated_time" content="2020-02-21T10:33:29.119Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;13.png">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
   
@@ -133,371 +143,121 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-支付宝第三方支付" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      支付宝第三方支付
+    </h1>
+  
+
+        
+        <a href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/" class="archive-article-date">
+  	<time datetime="2020-02-21T09:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>第一：生成支付的url<ul>
+<li>在电脑本地生成公钥、私钥（app公钥、app私钥）</li>
+<li>APP的公钥要上传到沙箱环境，然后我们要下载支付宝公钥 </li>
+<li>提供（实例化Alipay对象）：appid、支付宝公钥、app私钥</li>
+<li>提供（拼接付款的url）：订单id、金额、标题、return_url(付款成功的回调接口)、notify_url(付款成功后的异步通知)</li>
+</ul>
+</li>
+<li>第二：主动查询支付结果<ul>
+<li>提供（实例化Alipay对象）：appid、支付宝公钥、app私钥</li>
+<li>提供一个 订单id就可以查询当前订单支付结果<a id="more"></a>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="第三方支付宝支付的相关链接"><a href="#第三方支付宝支付的相关链接" class="headerlink" title="第三方支付宝支付的相关链接"></a>第三方支付宝支付的相关链接</h4><ul>
+<li><p>支付宝开发平台登录：</p>
+<ul>
+<li><a href="https://open.alipay.com/platform/home.html" target="_blank" rel="noopener">https://open.alipay.com/platform/home.html</a></li>
+</ul>
+</li>
+<li><p>沙箱环境：</p>
+<ul>
+<li>沙箱应用：<a href="https://docs.open.alipay.com/200/105311" target="_blank" rel="noopener">https://docs.open.alipay.com/200/105311</a></li>
+<li>沙箱账号：<a href="https://openhome.alipay.com/platform/appDaily.htm?tab=account" target="_blank" rel="noopener">https://openhome.alipay.com/platform/appDaily.htm?tab=account</a></li>
+</ul>
+</li>
+</ul>
+<h5 id="第一步：创建应用"><a href="#第一步：创建应用" class="headerlink" title="第一步：创建应用"></a>第一步：创建应用</h5><p><img src="../../public/img/13.png" alt="12"></p>
+<h5 id="2、生成秘钥"><a href="#2、生成秘钥" class="headerlink" title="2、生成秘钥"></a>2、生成秘钥</h5><p><img src="../../public/img/14.png" alt="12"></p>
+<h5 id="3、把生成的公钥粘贴到沙箱环境的app中"><a href="#3、把生成的公钥粘贴到沙箱环境的app中" class="headerlink" title="3、把生成的公钥粘贴到沙箱环境的app中"></a>3、把生成的公钥粘贴到沙箱环境的app中</h5><ul>
+<li>粘贴app公钥到沙箱环境中<br><img src="../../public/img/16.png" alt="12"></li>
+<li>支付宝公钥一会在程序中要使用<br><img src="../../public/img/17.png" alt="12"></li>
+</ul>
+<p>相关代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">from alipay import AliPay</span><br><span class="line"></span><br><span class="line"># 沙箱环境中 app 私钥</span><br><span class="line">app_private_key_string = open(&apos;app_private_key.pem&apos;).read()</span><br><span class="line"># 支付宝公钥</span><br><span class="line">alipay_public_key_string = open( &apos;alipay_public_key.pem&apos;).read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_alipay_url():</span><br><span class="line">    alipay = AliPay(</span><br><span class="line">        appid=&quot;2016101800716047&quot;,  # 沙箱appid</span><br><span class="line">        app_notify_url=None,  # 默认回调url</span><br><span class="line">        app_private_key_string=app_private_key_string,</span><br><span class="line">        # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,</span><br><span class="line">        alipay_public_key_string=alipay_public_key_string,</span><br><span class="line">        sign_type=&quot;RSA&quot;,  # RSA 或者 RSA2</span><br><span class="line">        debug=True,  # 默认False,我们是沙箱，所以改成True(让访问沙箱环境支付宝地址)</span><br><span class="line">    )</span><br><span class="line">    # 调用支付接口</span><br><span class="line">    # 电脑网站支付，需要跳转到https://openapi.alipay.com/gateway.do? + order_string</span><br><span class="line">    order_string = alipay.api_alipay_trade_page_pay(</span><br><span class="line">        out_trade_no=&quot;201611124&quot;,  # 订单id，应该从前端获取</span><br><span class="line">        total_amount=str(0.01),  # 订单总金额</span><br><span class="line">        subject=&quot;测试阿里云付款&quot;,  # 付款标题信息</span><br><span class="line">        return_url=None,  # 付款成功回调地址(可以为空)</span><br><span class="line">        notify_url=None  # 付款成功后异步通知地址（可以为空）</span><br><span class="line">    )</span><br><span class="line">    pay_url = &quot;https://openapi.alipaydev.com/gateway.do?&quot; + order_string</span><br><span class="line">    print(pay_url)  # 将这个url复制到浏览器，就会打开支付宝支付页面</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def query_pay():</span><br><span class="line">    alipay = AliPay(</span><br><span class="line">        appid=&quot;2016101800716047&quot;,  # 沙箱appid</span><br><span class="line">        app_notify_url=None,  # 默认回调url</span><br><span class="line">        app_private_key_string=app_private_key_string,</span><br><span class="line">        # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥</span><br><span class="line">        alipay_public_key_string=alipay_public_key_string,</span><br><span class="line">        sign_type=&quot;RSA&quot;,  # RSA 或者 RSA2</span><br><span class="line">        debug=True,  # 默认False,我们是沙箱，所以改成True(让访问沙箱环境支付宝地址)</span><br><span class="line">    )</span><br><span class="line">    trade_query = alipay.api_alipay_trade_query(</span><br><span class="line">        out_trade_no=20161112,  # 上面生成支付码页面时传入的商品订单号</span><br><span class="line">        trade_no=None</span><br><span class="line">    )</span><br><span class="line">    print(trade_query)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    get_alipay_url()</span><br><span class="line">    query_pay()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">trade_query 查询用户付款信息</span><br><span class="line">返回信息详情请看官方：https://docs.open.alipay.com/api_1/alipay.trade.query</span><br><span class="line">&#123;</span><br><span class="line">    &quot;code&quot;: &quot;10000&quot;,    # code=10000代表支付成功</span><br><span class="line">    &quot;msg&quot;: &quot;Success&quot;,</span><br><span class="line">    &quot;buyer_logon_id&quot;: &quot;foq***@sandbox.com&quot;,</span><br><span class="line">    &quot;buyer_pay_amount&quot;: &quot;0.00&quot;,</span><br><span class="line">    &quot;buyer_user_id&quot;: &quot;2088102180228981&quot;,</span><br><span class="line">    &quot;buyer_user_type&quot;: &quot;PRIVATE&quot;,</span><br><span class="line">    &quot;invoice_amount&quot;: &quot;0.00&quot;,</span><br><span class="line">    &quot;out_trade_no&quot;: &quot;20161112&quot;,</span><br><span class="line">    &quot;point_amount&quot;: &quot;0.00&quot;,</span><br><span class="line">    &quot;receipt_amount&quot;: &quot;0.00&quot;,</span><br><span class="line">    &quot;send_pay_date&quot;: &quot;2020-02-20 21:20:48&quot;,</span><br><span class="line">    &quot;total_amount&quot;: &quot;0.01&quot;,</span><br><span class="line">    &quot;trade_no&quot;: &quot;2020022022001428981000087565&quot;,</span><br><span class="line">    &quot;trade_status&quot;: &quot;TRADE_SUCCESS&quot;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../../public/img/18.png" alt="12"></p>
+<h4 id="支付宝支付流程"><a href="#支付宝支付流程" class="headerlink" title="支付宝支付流程"></a>支付宝支付流程</h4><p><img src="../../public/img/20.png" alt="12"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-01-22T08:53:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">redis五大数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/" class="archive-article-date">
-  	<time datetime="2020-01-21T00:54:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/">MYSQL数据备份</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-01-20T01:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">MYSQL主从同步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2020-01-19T05:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/">Redis哨兵集群</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/python%E4%B8%89%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-01-19T04:27:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/python%E4%B8%89%E5%99%A8/">python三器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-18T04:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/">python协程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-17T08:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/">python线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-16T07:56:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/">python进程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-01-14T00:50:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/">zabbix安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="archive-article-date">
-  	<time datetime="2019-12-25T00:45:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">Nginx反向代理与负载均衡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">什么是WebSocket</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -554,8 +314,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

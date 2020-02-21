@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Jiang的博客</title>
+  <title>python中map函数的解释和可视化 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="map（）的用法map()函数以迭代的方式将提供的功能应用于每个项目，结果是作为迭代器的map对象。语法： 1map(func, *iterables) map（）不会返回列表，而是返回一个map对象。map()函数在python2中返回的是列表。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中map函数的解释和可视化">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;03&#x2F;Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="map（）的用法map()函数以迭代的方式将提供的功能应用于每个项目，结果是作为迭代器的map对象。语法： 1map(func, *iterables) map（）不会返回列表，而是返回一个map对象。map()函数在python2中返回的是列表。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-21T09:21:53.819Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,144 +137,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python中map函数的解释和可视化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python中map函数的解释和可视化
+    </h1>
+  
+
+        
+        <a href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2020-02-03T03:13:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="map（）的用法"><a href="#map（）的用法" class="headerlink" title="map（）的用法"></a>map（）的用法</h4><p>map()函数以迭代的方式将提供的功能应用于每个项目，结果是作为迭代器的map对象。语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map(func, *iterables)</span><br></pre></td></tr></table></figure>
+<p>map（）不会返回列表，而是返回一个map对象。<br>map()函数在python2中返回的是列表。</p>
+<a id="more"></a>
+<h4 id="将map（）转换为列表，元组和集合"><a href="#将map（）转换为列表，元组和集合" class="headerlink" title="将map（）转换为列表，元组和集合"></a>将map（）转换为列表，元组和集合</h4><p>由于map()不返回列表/元组/集合，因此我们需要采取额外的步骤来转换生成的map对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def capitalize_word(input_word):</span><br><span class="line">    return input_word.capitalize()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">map_object = map(capitalize_word, [&apos;strength&apos;, &apos;agility&apos;, &apos;intelligence&apos;])</span><br><span class="line">test_list = list(map_object)</span><br><span class="line">print(test_list)</span><br><span class="line"></span><br><span class="line">map_object = map(capitalize_word, [&apos;health&apos;, &apos;mana&apos;, &apos;gold&apos;])</span><br><span class="line">test_set = set(map_object)</span><br><span class="line">print(test_set)</span><br><span class="line"></span><br><span class="line">map_object = map(capitalize_word, [&apos;armor&apos;, &apos;weapon&apos;, &apos;spell&apos;])</span><br><span class="line">test_tuple = tuple(map_object)</span><br><span class="line">print(test_tuple)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&apos;Strength&apos;, &apos;Agility&apos;, &apos;Intelligence&apos;]</span><br><span class="line">&#123;&apos;Mana&apos;, &apos;Health&apos;, &apos;Gold&apos;&#125;</span><br><span class="line">(&apos;Armor&apos;, &apos;Weapon&apos;, &apos;Spell&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="将map（）与Lambda表达式结合"><a href="#将map（）与Lambda表达式结合" class="headerlink" title="将map（）与Lambda表达式结合"></a>将map（）与Lambda表达式结合</h4><p>Lambda表达式是对我们的工具库的一个很好的补充：将Lambda表达式与map()代码相结合可使您的Python程序更小，更精确。<br>Lambda表达式可以创建匿名函数，即未约定特定标识符的函数。相反，通过def关键字创建函数会将函数绑定到其唯一标识符（例如def my_function创建标识符my_function）。<br>但是，lambda表达式也有一系列限制：它们每个只能做一件事情，只能在一个地方使用，通常与其他功能结合使用。我们看看lambda表达式如何map()同时使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cities = [&quot;caracas&quot;, &quot;bern&quot;, &quot;oslo&quot;, &quot;ottawa&quot;, &quot;bangkok&quot;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def capitalize_word(input_word):</span><br><span class="line">    return input_word.capitalize()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">capitalized_cities = map(capitalize_word, cities)</span><br></pre></td></tr></table></figure>
+<p>更简洁的版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cities = [&quot;caracas&quot;, &quot;bern&quot;, &quot;oslo&quot;, &quot;ottawa&quot;, &quot;bangkok&quot;]</span><br><span class="line"></span><br><span class="line">capitalized_cities = map(lambda s: s.capitalize(), cities)</span><br></pre></td></tr></table></figure>
+<p>map()和lambda表达式提供了凝聚多行代码成一行的能力。尽管此功能非常出色，但我们需要牢记编程的黄金法则之一：代码读取比写入更频繁。这意味着map()和lambda表达式都可以提高代码的简洁性，但是却牺牲了代码的清晰度。遗憾的是，对于代码的可读性，实际上并没有明确的指导方针。</p>
+<h4 id="将map（）与Lambda表达式组合遍历字典"><a href="#将map（）与Lambda表达式组合遍历字典" class="headerlink" title="将map（）与Lambda表达式组合遍历字典"></a>将map（）与Lambda表达式组合遍历字典</h4><p>在下面的代码中，我们初始化字典列表，并将每个字典作为参数传递给lambda函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list_of_ds = [&#123;&apos;user&apos;: &apos;Jane&apos;, &apos;posts&apos;: 18&#125;, &#123;&apos;user&apos;: &apos;Amina&apos;, &apos;posts&apos;: 64&#125;]</span><br><span class="line"></span><br><span class="line">map(lambda x: x[&apos;user&apos;], list_of_ds)  # Output: [&apos;Jane&apos;, &apos;Amina&apos;]</span><br><span class="line"></span><br><span class="line">map(lambda x: x[&apos;posts&apos;] * 10, list_of_ds)  # Output: [180, 640]</span><br><span class="line"></span><br><span class="line">map(lambda x: x[&apos;user&apos;] == &quot;Jane&quot;, list_of_ds)  # Output: [True, False]</span><br></pre></td></tr></table></figure>
+<h4 id="map（）替代方法：列表解析"><a href="#map（）替代方法：列表解析" class="headerlink" title="map（）替代方法：列表解析"></a>map（）替代方法：列表解析</h4><p>一些Python开发人员认为map()函数在某种程度上不是Python风格（即未遵循应如何构建Python程序的精神和设计理念）。他们建议改用列表解析，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map(f, iterable)</span><br></pre></td></tr></table></figure>
+<p>改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[f(x) for x in iterable]</span><br></pre></td></tr></table></figure>
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-01-22T08:53:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/22/redis%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">redis五大数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/" class="archive-article-date">
-  	<time datetime="2020-01-21T00:54:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/21/MYSQL%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/">MYSQL数据备份</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-01-20T01:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/20/MYSQL%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">MYSQL主从同步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2020-01-19T05:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/redis%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4/">Redis哨兵集群</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/python%E4%B8%89%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-01-19T04:27:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/python%E4%B8%89%E5%99%A8/">python三器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -282,222 +197,63 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-18T04:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/python%E5%8D%8F%E7%A8%8B/">python协程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-17T08:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/python%E7%BA%BF%E7%A8%8B/">python线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-01-16T07:56:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/python%E8%BF%9B%E7%A8%8B/">python进程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-01-14T00:50:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/zabbix%E5%AE%89%E8%A3%85/">zabbix安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="archive-article-date">
-  	<time datetime="2019-12-25T00:45:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">Nginx反向代理与负载均衡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/02/17/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何解决超卖问题
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">API接口规范</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -554,8 +310,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
