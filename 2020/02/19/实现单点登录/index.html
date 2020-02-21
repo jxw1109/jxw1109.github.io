@@ -15,11 +15,11 @@
 <meta property="og:site_name" content="Mr.Jiang的博客">
 <meta property="og:description" content="使用Redis实现分布式部署单点登录因为这个项目是一个分布式部署的项目，而且我们采用的是nginx负载均衡的策略，导致了每一个服务器都需要开辟一个空间来进行用户信息的维护，消耗了大量的资源，所以，我当时使用到了Redis来作为维护用户信息的空间，将用户登录的信息存入Redis中，并且在存入时设置key的过期时间，所有的服务器共用一个Redis，每次进行操作时只需要去Redis中去判断这个用户是否存">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;11.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;12.png">
-<meta property="og:updated_time" content="2020-02-21T10:06:05.878Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;11.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;12.png">
+<meta property="og:updated_time" content="2020-02-21T10:39:16.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;public&#x2F;img&#x2F;11.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;11.png">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
   
@@ -177,7 +177,7 @@
 <li>比如你写的一个tornado项目，分别部署到A，B两台机器上</li>
 <li>如果直接使用session，那么如果在A机器登录，token只会在A服务器的内存</li>
 <li>因为请求会封不到A，b连个机器，如果这个请求到了B机器，B的内存中没有就会让重新登录</li>
-<li>所以登录A机器的时候我们应该把token值写入到redis中，A/B机器登录，都从redis中获取token进行校验<br><img src="../../public/img/11.png" alt="1"><h4 id="基于JWT技术及RSA非对称加密实现真正无状态的单点登录"><a href="#基于JWT技术及RSA非对称加密实现真正无状态的单点登录" class="headerlink" title="基于JWT技术及RSA非对称加密实现真正无状态的单点登录"></a>基于JWT技术及RSA非对称加密实现真正无状态的单点登录</h4><img src="../../public/img/12.png" alt="1">   </li>
+<li>所以登录A机器的时候我们应该把token值写入到redis中，A/B机器登录，都从redis中获取token进行校验<br><img src="/img/11.png" alt="1"><h4 id="基于JWT技术及RSA非对称加密实现真正无状态的单点登录"><a href="#基于JWT技术及RSA非对称加密实现真正无状态的单点登录" class="headerlink" title="基于JWT技术及RSA非对称加密实现真正无状态的单点登录"></a>基于JWT技术及RSA非对称加密实现真正无状态的单点登录</h4><img src="/img/12.png" alt="1">   </li>
 </ul>
 </li>
 </ul>
