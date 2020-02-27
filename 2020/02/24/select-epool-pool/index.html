@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Jiang的博客</title>
+  <title>select,epool,pool | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="Select Socket数量限制:该模式可操作的Socket数由FD_SETSIZE决定,内核默认32*32=1024.  操作限制:通过遍历FD_SETSIZE个Socket来完成调度,不管哪个Socket是活跃的,都遍历一遍.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="select,epool,pool">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;select-epool-pool&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="Select Socket数量限制:该模式可操作的Socket数由FD_SETSIZE决定,内核默认32*32=1024.  操作限制:通过遍历FD_SETSIZE个Socket来完成调度,不管哪个Socket是活跃的,都遍历一遍.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-27T11:01:41.362Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,317 +136,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-select-epool-pool" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-02-27T11:00:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/">docker介绍</a>
+    <h1 class="article-title" itemprop="name">
+      select,epool,pool
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-02-25T10:10:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">redis主从同步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/24/select-epool-pool/" class="archive-article-date">
+        
+        <a href="/2020/02/24/select-epool-pool/" class="archive-article-date">
   	<time datetime="2020-02-24T09:51:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/24/select-epool-pool/">select,epool,pool</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h4><ul>
+<li>Socket数量限制:该模式可操作的Socket数由FD_SETSIZE决定,内核默认32*32=1024. </li>
+<li>操作限制:通过遍历FD_SETSIZE个Socket来完成调度,不管哪个Socket是活跃的,都遍历一遍. <a id="more"></a>
+<h4 id="Poll"><a href="#Poll" class="headerlink" title="Poll"></a>Poll</h4></li>
+<li>Socket数量几乎无限制:该模式下的Socket对应的fd列表由一个数组来保存,大小不限(默认4k). </li>
+<li>操作限制:同Select. </li>
+</ul>
+<h4 id="Epoll"><a href="#Epoll" class="headerlink" title="Epoll"></a>Epoll</h4><ul>
+<li>Socket数量无限制:同Poll </li>
+<li>操作无限制:基于内核提供的反射模式,有活跃Socket时,内核访问该Socket的callback,不需要遍历轮询. </li>
+</ul>
+<h4 id="select、poll、epoll-区别总结"><a href="#select、poll、epoll-区别总结" class="headerlink" title="select、poll、epoll 区别总结"></a>select、poll、epoll 区别总结</h4><h5 id="1、支持一个进程所能打开的最大连接数"><a href="#1、支持一个进程所能打开的最大连接数" class="headerlink" title="1、支持一个进程所能打开的最大连接数"></a>1、支持一个进程所能打开的最大连接数</h5><table>
+<thead>
+<tr>
+<th>select</th>
+<th>单个进程所能打开的最大连接数有FD_SETSIZE宏定义，其大小是32个整数的大小（在32位的机器上，大小就是32<em>32，同理64位机器上FD_SETSIZE为32</em>64），当然我们可以对进行修改，然后重新编译内核，但是性能可能会受到影响，这需要进一步的测试。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>poll</td>
+<td>poll本质上和select没有区别，但是它没有最大连接数的限制，原因是它是基于链表来存储的</td>
+</tr>
+<tr>
+<td>epoll</td>
+<td>虽然连接数有上限，但是很大，1G内存的机器上可以打开10万左右的连接，2G内存的机器可以打开20万左右的连接</td>
+</tr>
+<tr>
+<td>#####  2、FD剧增后带来的IO效率问题</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>select</td>
+<td>因为每次调用时都会对连接进行线性遍历，所以随着FD的增加会造成遍历速度慢的“线性下降性能问题”。</td>
+</tr>
+<tr>
+<td>poll</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>epoll</td>
+<td>因为epoll内核中实现是根据每个fd上的callback函数来实现的，只有活跃的socket才会主动调用callback，所以在活跃socket较少的情况下，使用epoll没有前面两者的线性下降的性能问题，但是所有socket都很活跃的情况下，可能会有性能问题。</td>
+</tr>
+<tr>
+<td>#####   3、 消息传递方式</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>select</th>
+<th>内核需要将消息传递到用户空间，都需要内核拷贝动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>poll</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>epoll</td>
+<td>epoll通过内核和用户空间共享一块内存来实现的。</td>
+</tr>
+</tbody></table>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li><p>表面上看epoll的性能最好，但是在连接数少并且连接都十分活跃的情况下，select和poll的性能可能比epoll好，毕竟epoll的通知机制需要很多函数回调。</p>
+</li>
+<li><p>select低效是因为每次它都需要轮询。但低效也是相对的，视情况而定，也可通过良好的设计改善</p>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/" class="archive-article-date">
-  	<time datetime="2020-02-21T09:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          redis主从同步
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">支付宝第三方支付</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/">支付宝第三方支付</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/" class="archive-article-date">
-  	<time datetime="2020-02-20T10:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/">什么是WebSocket</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2020-02-19T09:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">实现单点登录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/%E4%BB%80%E4%B9%88%E6%98%AFCDN/" class="archive-article-date">
-  	<time datetime="2020-02-17T10:42:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/%E4%BB%80%E4%B9%88%E6%98%AFCDN/">什么是CDN</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-02-17T09:33:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98/">如何解决超卖问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-02-03T03:13:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/">python中map函数的解释和可视化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  	<time datetime="2020-02-01T08:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/">API接口规范</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -500,8 +354,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

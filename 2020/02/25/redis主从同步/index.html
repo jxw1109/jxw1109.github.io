@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Jiang的博客</title>
+  <title>redis主从同步 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="1、CPA原理 CPA原理是分布式存储理论的基石： C(一致性)；   A(可用性)；  P(分区容忍性) 当主从网络无法连通时，修改操作无法同步到节点，所以“一致性”无法满足 除非我们牺牲“可用性”，也就是暂停分布式节点服务，不再提供修改数据功能，直到网络恢复 一句话概括CAP: 当网络分区发生时，一致性 和 可用性 两难全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis主从同步">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;25&#x2F;redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="1、CPA原理 CPA原理是分布式存储理论的基石： C(一致性)；   A(可用性)；  P(分区容忍性) 当主从网络无法连通时，修改操作无法同步到节点，所以“一致性”无法满足 除非我们牺牲“可用性”，也就是暂停分布式节点服务，不再提供修改数据功能，直到网络恢复 一句话概括CAP: 当网络分区发生时，一致性 和 可用性 两难全">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-27T11:01:03.860Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,317 +136,119 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-redis主从同步" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-02-27T11:00:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/">docker介绍</a>
+    <h1 class="article-title" itemprop="name">
+      redis主从同步
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
+        
+        <a href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
   	<time datetime="2020-02-25T10:10:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">redis主从同步</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、CPA原理"><a href="#1、CPA原理" class="headerlink" title="1、CPA原理"></a>1、CPA原理</h3><ul>
+<li>CPA原理是分布式存储理论的基石： C(一致性)；   A(可用性)；  P(分区容忍性)</li>
+<li>当主从网络无法连通时，修改操作无法同步到节点，所以“一致性”无法满足</li>
+<li>除非我们牺牲“可用性”，也就是暂停分布式节点服务，不再提供修改数据功能，直到网络恢复</li>
+<li>一句话概括CAP: 当网络分区发生时，一致性 和 可用性 两难全<a id="more"></a>
+<h3 id="2、redis主从同步介绍"><a href="#2、redis主从同步介绍" class="headerlink" title="2、redis主从同步介绍"></a>2、redis主从同步介绍</h3></li>
+<li>和MySQL主从复制的原因一样，Redis虽然读取写入的速度都特别快，但是也会产生读压力特别大的情况。</li>
+<li>为了分担读压力，Redis支持主从复制，Redis的主从结构可以采用一主多从或者级联结构。</li>
+<li>Redis主从复制可以根据是否是全量分为全量同步和增量同步。</li>
+<li><strong>redis主节点Master挂掉时，运维让从节点Slave接管（redis主从默认无法自动切换，需要运维手动切换）</strong><h3 id="3、全量同步（快照同步）"><a href="#3、全量同步（快照同步）" class="headerlink" title="3、全量同步（快照同步）"></a>3、全量同步（快照同步）</h3></li>
+<li>Redis全量复制一般发生在Slave初始化阶段，这时Slave需要将Master上的所有数据都复制一份。具体步骤如下：</li>
+<li>从服务器连接主服务器，发送SYNC命令；</li>
+<li>主服务器接收到SYNC命名后，开始执行BGSAVE命令生成RDB文件并使用缓冲区记录此后执行的所有写命令；</li>
+<li>主服务器BGSAVE执行完后，向所有从服务器发送快照文件，并在发送期间继续记录被执行的写命令；</li>
+<li>从服务器收到快照文件后丢弃所有旧数据，载入收到的快照；</li>
+<li>主服务器快照发送完毕后开始向从服务器发送缓冲区中的写命令；</li>
+<li>从服务器完成对快照的载入，开始接收命令请求，并执行来自主服务器缓冲区的写命令；</li>
+<li>完成上面几个步骤后就完成了从服务器数据初始化的所有操作，从服务器此时可以接收来自用户的读请求。<h3 id="4、增量同步"><a href="#4、增量同步" class="headerlink" title="4、增量同步"></a>4、增量同步</h3></li>
+<li>主节点会将那些对自己状态产生修改性影响的指令记录在本地内存buffer中，然后异步将buffer中指令同步到从节点</li>
+<li>从节点一边执行同步指令达到主节点状态，一边向主节点反馈自己同步到哪里（偏移量）</li>
+<li>当网络状态不好时，从节点无法和主节点进行同步，当网络恢复时需要进行快照同步<h3 id="5、Redis主从同步策略"><a href="#5、Redis主从同步策略" class="headerlink" title="5、Redis主从同步策略"></a>5、Redis主从同步策略</h3></li>
+<li>主从刚刚连接的时候，进行全量同步；全同步结束后，进行增量同步。</li>
+<li>当然，如果有需要，slave 在任何时候都可以发起全量同步。</li>
+<li>redis 策略是，无论如何，首先会尝试进行增量同步，如不成功，要求从机进行全量同步。</li>
+</ul>
+<h3 id="6、注意点"><a href="#6、注意点" class="headerlink" title="6、注意点"></a>6、注意点</h3><ul>
+<li>如果多个Slave断线了，需要重启的时候，因为只要Slave启动，就会发送sync请求和主机全量同步，当多个同时出现的时候，可能会导致Master IO剧增宕机。</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/24/select-epool-pool/" class="archive-article-date">
-  	<time datetime="2020-02-24T09:51:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          docker介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/24/select-epool-pool/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">select,epool,pool</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/24/select-epool-pool/">select,epool,pool</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/" class="archive-article-date">
-  	<time datetime="2020-02-21T09:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/">支付宝第三方支付</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/" class="archive-article-date">
-  	<time datetime="2020-02-20T10:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/">什么是WebSocket</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2020-02-19T09:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">实现单点登录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/%E4%BB%80%E4%B9%88%E6%98%AFCDN/" class="archive-article-date">
-  	<time datetime="2020-02-17T10:42:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/%E4%BB%80%E4%B9%88%E6%98%AFCDN/">什么是CDN</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-02-17T09:33:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98/">如何解决超卖问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-02-03T03:13:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/">python中map函数的解释和可视化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  	<time datetime="2020-02-01T08:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/">API接口规范</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -500,8 +305,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

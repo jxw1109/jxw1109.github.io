@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Jiang的博客</title>
+  <title>docker介绍 | Mr.Jiang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Jiang的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="docker介绍 Docker 是应用最广泛的开源容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中 然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。 每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。 容器： 容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker介绍">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;27&#x2F;docker%E4%BB%8B%E7%BB%8D&#x2F;index.html">
 <meta property="og:site_name" content="Mr.Jiang的博客">
+<meta property="og:description" content="docker介绍 Docker 是应用最广泛的开源容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中 然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。 每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。 容器： 容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-27T11:09:39.883Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Jiang的博客" type="application/atom+xml">
@@ -133,317 +136,150 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-docker介绍" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      docker介绍
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
+
+        
+        <a href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
   	<time datetime="2020-02-27T11:00:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/27/docker%E4%BB%8B%E7%BB%8D/">docker介绍</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="docker介绍"><a href="#docker介绍" class="headerlink" title="docker介绍"></a>docker介绍</h4><ul>
+<li>Docker 是应用最广泛的开源容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中</li>
+<li>然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。</li>
+<li>每个容器拥有一套和宿主机完全隔离的文件系统（共用linux内核），程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。<ul>
+<li>容器：<ul>
+<li>容器是一个操作系统级别下的虚拟化技术，运行一个容器就行运行一个进程一样</li>
+<li>容器依赖linux内核特性：Namespace（资源隔离）和Cgroups（资源限制）<a id="more"></a>
+<h4 id="docker技术应用场景"><a href="#docker技术应用场景" class="headerlink" title="docker技术应用场景"></a>docker技术应用场景</h4></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>场景一：节省项目环境部署时间<ul>
+<li>单项目打包<ul>
+<li>每次部署项目到测试、生产等环境，都要部署一大堆依赖的软件、工具，时间久，出错概率大。</li>
+<li>Docker主要理念就是环境打包部署，可在任意Docker Engine运行。</li>
+<li>我们只需要将每个项目环境打包到镜像，push到镜像仓库，当有需要部署这个项目时，直接pull镜像启动容器，这个项目就可以访问了！一次构建多次部署，一劳永逸。</li>
+</ul>
+</li>
+<li>整套项目打包<ul>
+<li>比如有一个产品可以整套部署到客户那里，以往都是派一名实施工程师到客户那部署。</li>
+<li>如果用了Docker，我们可以前期将这套项目封装打包起来，实现一键部署，分分钟钟搞定，就不需要再派人过去了。比如官方的Docker Compose编排工具。</li>
+<li>新开源技术试用<ul>
+<li>有时，我们想调研一些开源项目，我们可以直接从公共镜像仓库pull项目官方做好镜像启动容器即可。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>场景二：环境一致性<ul>
+<li>项目在开发电脑本地运行没问题，到了测试或生产环境就运行不起来。</li>
+<li>Docker将项目环境打包成镜像，可以在任何Docker Engine部署。</li>
+</ul>
+</li>
+<li>场景三：持续集成<ul>
+<li>一个项目版本快速迭代的测试场景，需要一个合理的CI（持续集成）/CD（持续部署）环境支撑。</li>
+<li>CI/CD是一个周期性自动化项目测试流程，包括构建、部署、测试、发布等工作，很少需要人工干预。</li>
+<li>Docker通过项目镜像构建和快速部署，打通测试环境与生产环境，高度保持多个环境之间一致性。</li>
+</ul>
+</li>
+<li>场景四：微服务<ul>
+<li>微服务指尽可能细粒度拆分业务程序架构，由多个独立服务组成业务系统。</li>
+<li>Docker容器作为这些独立服务的部署单元，每个服务单独部署到一个docker容器中。</li>
+</ul>
+</li>
+</ul>
+<h4 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 1）安装依赖包</span><br><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"># 2）添加Docker软件包源(否则doker安装的不是新版本)</span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"># 3）安装Docker CE</span><br><span class="line">yum install -y docker-ce</span><br><span class="line"></span><br><span class="line"># 4）启动Docker服务并设置开机启动</span><br><span class="line">systemctl start docker</span><br><span class="line">systemctl enable docker</span><br><span class="line"></span><br><span class="line"># 5）测试docker是否安装成功（hello-world是官方提供的一个测试镜像）</span><br><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line"># 6）查看docker基本信息</span><br><span class="line">docker info</span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<h4 id="docker简单使用（创建一个ngixn容器）"><a href="#docker简单使用（创建一个ngixn容器）" class="headerlink" title="docker简单使用（创建一个ngixn容器）"></a>docker简单使用（创建一个ngixn容器）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 1、创建一个nginx容器</span><br><span class="line"> docker run -it nginx</span><br><span class="line"> </span><br><span class="line"> # 2、查看docker运行的容器(可以获取到这个容器的id)</span><br><span class="line"> docker ps</span><br><span class="line"> </span><br><span class="line"> # 3、访问这个容器</span><br><span class="line"> # 进入这个nginx容器（进入的文件系统和宿主机是完全隔离的，有自己独立的文件系统）</span><br><span class="line"> docker exec -it 73877e65c07d bash</span><br><span class="line"> </span><br><span class="line"> # 4、查看当前容器的 IP</span><br><span class="line"> docker inspect 73877e65c07d   # 73877e65c07d是通过docekr ps查看到的容器ID</span><br><span class="line"> curl 172.17.0.2               # 测试这个nginx容器是否可以访问</span><br></pre></td></tr></table></figure>
+<h4 id="什么是docker镜像"><a href="#什么是docker镜像" class="headerlink" title="什么是docker镜像"></a>什么是docker镜像</h4><ul>
+<li>docker镜像不包含Linux内核而又精简的Linux操作系统</li>
+<li>docker镜像是一个分层存储的文件，一个镜像可以创建N个容器</li>
+<li>可以这么理解，docker 镜像是 docker 容器的静态视角，docker 容器是 docker 镜像的运行状态。</li>
+<li>容器只是对docker镜像的引用，如果docker镜像删除，此镜像创建的容器也都失效<h4 id="docker镜像与容器的区别"><a href="#docker镜像与容器的区别" class="headerlink" title="docker镜像与容器的区别"></a>docker镜像与容器的区别</h4></li>
+<li>当由 ubuntu:14.04 镜像启动容器时，ubuntu:14.04 镜像的镜像层内容将作为容器的 rootfs；</li>
+<li>而 ubuntu:14.04 镜像的 json 文件，会由 docker daemon 解析，并提取出其中的容器执行入口 CMD 信息，以及容器进程的环境变量 ENV 信息，最终初始化容器进程。</li>
+<li>当然，容器进程的执行入口来源于镜像提供的 rootfs。</li>
+</ul>
+<h4 id="rootfs"><a href="#rootfs" class="headerlink" title="rootfs"></a>rootfs</h4><ul>
+<li>rootfs 是 docker 容器在启动时内部进程可见的文件系统，即 docker 容器的根目录。</li>
+<li>rootfs 通常包含一个操作系统运行所需的文件系统，例如可能包含典型的类 Unix 操作系统中的目录系统，如 /dev、/proc、/bin、/etc、/lib、/usr、/tmp 及运行 docker 容器所需的配置文件、工具等。</li>
+<li>在传统的 Linux 操作系统内核启动时，首先挂载一个只读的 rootfs，当系统检测其完整性之后，再将其切换为读写模式。</li>
+<li>而在 docker 架构中，当 docker daemon 为 docker 容器挂载 rootfs 时，沿用了 Linux 内核启动时的做法，即将 rootfs 设为只读模式。</li>
+<li>在挂载完毕之后，利用联合挂载(union mount)技术在已有的只读 rootfs 上再挂载一个读写层。</li>
+<li>这样，可读写的层处于 docker 容器文件系统的最顶层，其下可能联合挂载了多个只读的层，</li>
+<li>只有在 docker 容器运行过程中文件系统发生变化时，才会把变化的文件内容写到可读写层，并隐藏只读层中的旧版本文件。</li>
+</ul>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-02-25T10:10:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis主从同步</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/redis%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5/">redis主从同步</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/24/select-epool-pool/" class="archive-article-date">
-  	<time datetime="2020-02-24T09:51:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/24/select-epool-pool/">select,epool,pool</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/" class="archive-article-date">
-  	<time datetime="2020-02-21T09:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/">支付宝第三方支付</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/" class="archive-article-date">
-  	<time datetime="2020-02-20T10:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/%E4%BB%80%E4%B9%88%E6%98%AFWebSocket/">什么是WebSocket</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2020-02-19T09:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">实现单点登录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/%E4%BB%80%E4%B9%88%E6%98%AFCDN/" class="archive-article-date">
-  	<time datetime="2020-02-17T10:42:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/%E4%BB%80%E4%B9%88%E6%98%AFCDN/">什么是CDN</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-02-17T09:33:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98/">如何解决超卖问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-02-03T03:13:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/03/Python%E4%B8%ADmap%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/">python中map函数的解释和可视化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  	<time datetime="2020-02-01T08:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/01/API%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/">API接口规范</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -500,8 +336,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
